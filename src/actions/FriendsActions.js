@@ -15,10 +15,11 @@ export function deleteFriend(id) {
   };
 }
 
-export function editFriend(name,phone) {
+export function editFriend(name,phone,id) {
   return {
     type: types.EDIT_FRIEND,
     name,
     phone,
+    id
   };
 }

@@ -5,9 +5,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import ListFriend from './components/listfriend';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
-import { reducer as formReducer } from 'redux-form'
 import friends from './reducers/reducers';
-import AddFriendInput from './components/addfriend';
 import AddButton from './components/addbutton';
 const reducers ={
     friends: friends

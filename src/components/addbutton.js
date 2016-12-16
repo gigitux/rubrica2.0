@@ -30,7 +30,7 @@ export default class DialogExampleModal extends React.Component {
       <FlatButton
         label="Aggiungi"
         primary={true}
-        onTouchTap={this.handleOpen }
+        onTouchTap={this.handleOpen}
       />,
     ];
 

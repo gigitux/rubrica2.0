@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as FriendsActions from '../actions/FriendsActions';
 
-class AddFriendInput extends Component {
+class EditComponentFriend extends Component {
 
     constructor (props) {
     super(props);
@@ -14,7 +14,6 @@ class AddFriendInput extends Component {
     };
     this.handleChangeName = this.handleChangeName.bind(this)
     this.handleChangePhone = this.handleChangePhone.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
     this.handleEdit = this.handleEdit.bind(this)
   }
 
@@ -23,16 +22,6 @@ class AddFriendInput extends Component {
   }
  handleChangePhone (event) {
      this.setState({ phone: event.target.value });
-  }
-
-  handleSubmit (event) {
-
-    const name = this.state.name;
-    const phone = this.state.phone;
-      this.props.addfriend(name,phone)
-       event.preventDefault()
-      this.setState({ name: '' });
-      this.setState({ phone: '' })
   }
 
   handleEdit (event) {
@@ -48,7 +37,7 @@ class AddFriendInput extends Component {
 
   render () {
     return (
-    <form onSubmit={this.handleSubmit} >
+    <form onSubmit={this.handleEdit} >
       <input
         type="text"
         placeholder="Nome"
@@ -83,4 +72,4 @@ function mapDispatchToProps(dispatch) {
 }
 
 
-export default connect(null,mapDispatchToProps)(AddFriendInput)
+export default connect(null,mapDispatchToProps)(EditComponentFriend)

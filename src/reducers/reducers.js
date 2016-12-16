@@ -3,7 +3,6 @@ import * as types from '../constants/ActionTypes';
 //import assign from 'lodash/object/assign';
 //import mapValues from 'lodash/object/mapValues';
 import _ from 'lodash';
-import update from 'immutability-helper';
 
 /* Inizializziamo lo store con parametri di default. Lo store è formato da un array (friends) che contiene solo gli id e da un array di oggetti (friendsById) */
 const initialState = {
@@ -62,10 +61,21 @@ Poi aggiungiamo all'array di oggetti un nuovo id, un nuovo nome e un nuovo telef
       } )
       }
 
-    case types.EDIT_FRIEND:
-      return update(state,  {friendsById: {$apply:[{
-          name: action.name, phone:action.phone}]}});
-    default:
-      return state;
+      case types.EDIT_FRIEND:
+      console.log(action)
+      var findid = function FindId(friend) {
+        return friend.id == action.id
+     }
+     var find_id = state.friendsById.find(findid)
+     find_id.name = action.name
+     find_id.phone = action.phone
+        return {
+          ...state,
+          friendsById: [
+            ...state.friendsById,
+          ]
+        }
+      default:
+        return state;
+    }
   }
-}
